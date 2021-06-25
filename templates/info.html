@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+ 
+<script>
+  var today = new Date();
+  var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear()+ '  '+
+            today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  document.write("Date Today : ")
+  document.write (date)
+</script>
+{% endblock title%}
+
+{% block content %}
+
+  <h1> The  Messages</h1>
+
+
+  {% for msg in mssg %}
+  <span class = "card com m-1 p-10 col-md-8 mx-auto card-body" style="width: 45rem;">
+    <h4 class="card-title"style =" color: brown;">{{msg.title}}</h4></a>
+
+    <p><b>Author: {{msg.author}} </b></p>
+    <p>Posted on: {{msg.created}} </p>
+    CKE
+    <p> {{msg.contentCKE|safe}} </p>
+    MCE
+    <p> {{msg.contentMCE|safe}} </p>
+    QLL
+    <p> {{msg.contentQLL.html|safe}} </p>
+    <br> 
+
+
+  </span>
+  {% endfor %}
+
+  <hr>
+
+{% endblock content %}
